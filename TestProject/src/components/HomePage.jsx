@@ -3,6 +3,7 @@ import axios from "axios";
 import NavBar from "./NavBar";
 import { Container, Paper, TextField, Box, List } from "@mui/material";
 import ListCompany from "./ListCompany";
+import SearchIcon from '@mui/icons-material/Search';
 
 const HomePage = () => {
   const [data, setData] = useState();
@@ -38,7 +39,7 @@ const HomePage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar regisTitle={"register"}/>
       <Container maxWidth="lg" component={Paper} sx={{ p: 1 }}>
         <Box sx={{position:"sticky",top:"10px"}}>
           <TextField fullWidth label="ค้นหาบริษัท" id="fullWidth" onChange={(e)=> setWord(e.target.value)} sx={{bgcolor:"white"}}/>

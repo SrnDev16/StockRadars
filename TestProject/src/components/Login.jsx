@@ -1,17 +1,10 @@
 import NavBar from "./NavBar";
-import {
-  Container,
-  Paper,
-  Box,
-  Typography,
-  Avatar,
-} from "@mui/material";
+import { Container, Paper, Box, Typography, Avatar } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useForm } from "react-hook-form";
-import styles from "./NavBar.module.css"
+import styles from "./NavBar.module.css";
 
-
-const Register = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
@@ -21,12 +14,11 @@ const Register = () => {
   const onSubmit = (data, e) => {
     console.log(data);
     e.target.reset();
-    window.location.href="/login";
   };
 
   return (
     <>
-      <NavBar loginTitle={"Login"}/>
+      <NavBar regisTitle={"Register"} />
       <Container maxWidth="sm" component={Paper} sx={{mt:1}}>
         <Box
           sx={{
@@ -41,32 +33,10 @@ const Register = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography variant="h5" sx={{ marginY: 1 }}>
-            Register
+            Login
           </Typography>
 
           <form onSubmit={handleSubmit(onSubmit)} className={styles.myForm}>
-            <input
-              type="text"
-              placeholder="First Name"
-              {...register("firstName", {
-                required: "First Name is required",
-                maxLength: 20,
-              })}
-            />
-            {errors.firstName && (
-              <p style={{ color: "red" }}>{errors.firstName.message}</p>
-            )}
-            <input
-              type="text"
-              placeholder="Last Name"
-              {...register("lastName", {
-                required: "Last Name is required",
-                maxLength: 20,
-              })}
-            />
-            {errors.lastName && (
-              <p style={{ color: "red" }}>{errors.lastName.message}</p>
-            )}
             <input
               type="email"
               placeholder="Email"
@@ -97,7 +67,8 @@ const Register = () => {
               <p style={{ color: "red" }}>{errors.password.message}</p>
             )}
             <br />
-           <button type="submit">Register</button>
+            
+              <button type="submit">Register</button>
           </form>
         </Box>
       </Container>
@@ -105,4 +76,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

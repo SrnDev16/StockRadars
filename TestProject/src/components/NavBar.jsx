@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import {useState} from "react"
 import navStyle from './NavBar.module.css'
 
-const NavBar = () => {
+const NavBar = ({regisTitle,loginTitle}) => {
     const [open ,setOpen] = useState(false)
 
     const handleMenu = ( ) => setOpen(!open)
@@ -16,8 +16,8 @@ const NavBar = () => {
         </div>
         <div className={open ? `${navStyle.menu} ${navStyle.active}` : navStyle.menu}>
             <ul>
-                <li><Link to={"/register"} >register</Link></li>
-                <li><Link to={"/login"} >login</Link></li>
+                <li><Link to={"/register"} >{regisTitle}</Link></li>
+                <li><Link to={"/login"} >{loginTitle}</Link></li>
             </ul>
         </div>
         <div className={navStyle.mobileMenu} onClick={handleMenu}>
